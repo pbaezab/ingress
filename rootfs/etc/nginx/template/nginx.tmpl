@@ -1257,6 +1257,7 @@ stream {
             {{ $proxySetHeader }}                        Connection        $connection_upgrade;
             {{ end }}
 
+            {{ $proxySetHeader }} X-Request-Start        "t=${msec}";
             {{ $proxySetHeader }} X-Request-ID           $req_id;
             {{ $proxySetHeader }} X-Real-IP              $the_real_ip;
             {{ if and $all.Cfg.UseForwardedHeaders $all.Cfg.ComputeFullForwardedFor }}
